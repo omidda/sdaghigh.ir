@@ -1,1 +1,0 @@
-# sdaghigh.ir
