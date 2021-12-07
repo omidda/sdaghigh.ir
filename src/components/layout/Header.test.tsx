@@ -1,10 +1,21 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
 import Header from "./Header";
-import { assert } from 'console';
+import { shallow } from 'enzyme';
+describe("Header component test suit",()=>{
+  
+  let mountedHeader : any;
+  let title = "Sajad personal website";
 
-it('Render header', () => {
-  let title = "Header";
-  render(<Header title={title} />);
-  expect(screen.getByText(title));
-});
+  beforeAll(()=>{
+    mountedHeader = shallow(<Header title={title} />);
+  })
+
+  it('Render header with menu', () => {
+
+    let finedeMenu = mountedHeader.find("h1");
+
+    expect(finedeMenu.text()).toEqual(title);
+    
+  });
+ 
+
+})

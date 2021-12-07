@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Menu } from "./Menu"
+import './header.scss'
 type HeaderType = {
     title: string
 }
@@ -7,7 +8,10 @@ type HeaderType = {
 function Header({title} : HeaderType) {
     return (
         <div>
-            <h1>Header</h1>
+            <h1>{ title }</h1>
+            <span>
+                <Menu />
+            </span>
         </div>
     )
 }
