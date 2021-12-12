@@ -10,10 +10,11 @@ export function Menu() {
          title: "Home" , url : "/"
             }];
             let res = 10 / 0;
+            
 
     return (
         <div className="Navigation">
-            
+            {res}
             <ul>
             {
                 menuItems.map(m=>{
