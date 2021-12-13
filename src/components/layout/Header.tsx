@@ -1,7 +1,7 @@
 import React from 'react'
 import { Menu } from "./Menu"
 import './header.scss'
-import { ThemeConsumer } from "../../ContextPC"
+import SwitchButton, { ThemeConsumer } from "../../ContextPC"
 type HeaderType = {
     title: string
 }
@@ -18,6 +18,8 @@ function Header({title} : HeaderType) {
                     <Menu />
                     { value.mode } | { value.lang}
                 </span>
+
+                <SwitchButton />
             </div>
             }
         </ThemeConsumer>
