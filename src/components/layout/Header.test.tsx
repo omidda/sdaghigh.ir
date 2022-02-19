@@ -1,12 +1,17 @@
 import Header from "./Header";
 import { shallow } from 'enzyme';
+import { ThemeProvider } from '../../ContextPC';
+
 describe("Header component test suit",()=>{
   
   let mountedHeader : any;
   let title = "Sajad personal website";
 
   beforeAll(()=>{
-    mountedHeader = shallow(<Header title={title} />);
+    mountedHeader = shallow(
+      <ThemeProvider >
+        <Header title={title} />
+        </ThemeProvider>);
   })
 
   it('Render header with menu', () => {

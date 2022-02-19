@@ -7,14 +7,16 @@ export function Menu() {
          title: "Home" , url : "/"
         },{
             id: 2,
-         title: "Home" , url : "/"
+         title: "Expriences" , url : "/expriences"
+            },{
+            id: 3,
+         title: "Social" , url : "/social"
             }];
-            let res = 10 / 0;
             
 
     return (
         <div className="Navigation">
-            {res}
+            {/* {res} */}
             <ul>
             {
                 menuItems.map(m=>{

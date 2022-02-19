@@ -1,25 +1,38 @@
-import React, {useContext}  from 'react';
+import React, {useContext,lazy,Suspense}  from 'react';
 import './App.css';
-import Header from "./components/layout/Header"
-import { ThemeContext } from './ContextPC';
+import { BrowserRouter , Routes, Route } from "react-router-dom"
+import Header from './components/layout/Header';
 
+const Home = lazy(() => import('./components/layout/Home'));
+const Experiences = lazy(() => import('./components/layout/Experiences'));
+const Social = lazy(() => import('./components/layout/Social'));
+const NotFound = lazy(() => import('./components/layout/NotFound'));
 
 function App() {
  
-  const theme = useContext(ThemeContext);
-  const darkMode = theme.state.mode;
-  console.log(' THEME ' + darkMode);
   return (
-    <div className={`bg ${darkMode === "dark" ? "bg-dark" : "bg-light"}`}>
-      <h1 className={`heading ${darkMode  === "dark" ? "heading-dark" : "heading-light"}`}>
-        {darkMode  === "dark" ? "Dark Mode" : "Light Mode"}
-      </h1>
-      <p className={`para ${darkMode  === "dark" ? "para-dark" : "para-light"}`}>
-        TEST APP
-        <Header title={"TEST TITLE"} />
-      </p>
-    
-    </div>
+    <div>
+              <h1>
+              TEST
+              </h1>
+              <p>
+              TEST APP
+              <Header title={"TEST TITLE"} />
+              </p>
+
+
+                <BrowserRouter>
+                    <Suspense fallback={<h1> (( L O A D I N G )) </h1>}>
+                      <Routes>
+                        
+                          <Route index element={<Home />} />
+                          <Route path="expriences" element={<Experiences />} />
+                          <Route path="social" element={<Social />} />
+                          <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </Suspense>
+                </BrowserRouter>
+              </div>
   );
 }
 
