@@ -1,0 +1,11 @@
+{
+  "name": "sdaghigh_backend",
+  "version": "1.0.0",
+  "description": "The backend layer of my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "Sajad Daghigh",
+  "license": "ISC"
+}
