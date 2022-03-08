@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { sendEmail } from "../lib/mail-lib";
 
-const router = new Router();
+
+const router = Router();
 
 router.get("/get", (req, res) => {
 
@@ -12,12 +13,9 @@ router.get("/get", (req, res) => {
 
 router.post("/send", (req, res) => {
 
-    console.log("Contact recieved")
-    sendEmail();
+    const result = sendEmail(req.body);
 
-    res.json({
-        status: "success"
-    })
+    res.json(result);
 });
 
 export default router;

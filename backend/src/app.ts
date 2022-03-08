@@ -1,6 +1,6 @@
-import express from "express";
-import bodyParser from "body-parser";
-import { logger } from "./lib/logget-lib";
+import * as express from "express";
+import * as bodyParser from "body-parser";
+import { logger } from "./lib/logger-lib";
 import contactRoutes from "./routes/contact-routes";
 
 const app = express();
