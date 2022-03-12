@@ -3,7 +3,7 @@ import { news_sources } from '../settings.js';
 import { NewsDTO } from '../model/NewsDTO.js';
 
 
-var getNews = (url) => { 
+export const getNews = (url) => { 
   
   return new Promise((resolve,reject) => {
         // console.log("News gathering started -> " , url);
