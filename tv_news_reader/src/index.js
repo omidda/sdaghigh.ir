@@ -1,10 +1,11 @@
 
 import { getAllNews } from './services/newsGathering.js';
 
-console.log("NEWS Service of TRADERVIEW . IR")
+console.log("NEWS Service of TRADERVIEW . IR");
 
-setInterval(()=> getAllNews(), 30000);
+getAllNews();
 
+setInterval(()=> getAllNews(), 60000);
 
 
 

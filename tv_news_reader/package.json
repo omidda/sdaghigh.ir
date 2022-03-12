@@ -2,15 +2,17 @@
   "name": "tv_news_reader",
   "version": "1.0.0",
   "description": "A microservice to read news",
-  "main": "index.js",
+  "main": "./",
   "type": "module",
   "scripts": {
     "test": "npm run test",
-    "startdev":  "cls & nodemon  ./src"
+    "startdev": "cls & nodemon  ./src"
   },
   "author": "Sajad Daghigh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "feed-reader": "^5.0.0-rc3"
   },
   "devDependencies": {
@@ -21,6 +23,7 @@
     "babel-cli": "^6.26.0",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2",
     "webpack": "^5.70.0",

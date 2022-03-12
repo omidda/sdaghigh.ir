@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     res.json({
         "Title": "Sdaghigh.ir web REST APIs.",
         "Version" : "1.0"
-    })
+    }) 
  })
 // app.use(express.static("./client"));
 app.use("/contact", contactRoutes);
