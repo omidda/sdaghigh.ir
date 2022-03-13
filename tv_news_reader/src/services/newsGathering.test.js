@@ -1,4 +1,4 @@
-import { getNews, queryAllNews, mergeResult } from './newsGathering';
+import { getNews, queryAllNews, mergeResult,queryInNews } from './newsGathering';
 import { news_sources } from './../settings';
 
 describe("News Gathering test", ()=>{
@@ -23,5 +23,14 @@ describe("News Gathering test", ()=>{
                 expect(final[0].d).not.toBeUndefined();
             }
         );
+     })
+
+     test("News Query TEST",()=>{
+         let fakeData = [{t:"بازار بورس در سال جدید به کجا می روند", d: "در صورت مشاهده هر یک از موارد بازار می  توان یه بورس مراجعه کرد"}];
+
+         let result = queryInNews(["سالاذ","قلب"], fakeData);
+         console.log(result);
+
+         expect(result.length).toBeGreaterThan(0);
      })
 });

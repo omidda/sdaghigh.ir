@@ -63,7 +63,7 @@ export const queryAndMergeResult = () => {
   });
 }
 
-const mergeResult = (result) => { 
+export const mergeResult = (result) => { 
   let final = [];
   result.map((r, i) => {
     r.value.map((v) => { 
@@ -73,4 +73,27 @@ const mergeResult = (result) => {
   });
 
   return final;
+}
+
+
+
+export const queryInNews = (query,data) => {
+  let q = "";
+  query.map((s) => {
+      q = q + s + "|";
+  });
+
+  if(query && query[0])
+    q.substring(0,q.length - 1);
+  
+  console.log(q);
+  let regex = new RegExp("^" + q + "$");
+  console.log(regex.test("add as a "));
+
+  return data.filter(news => 
+    
+     ( (news.t && regex.test(news.t)) || (news.d && regex.test((news.d))) )
+    
+     );
+  
 }
