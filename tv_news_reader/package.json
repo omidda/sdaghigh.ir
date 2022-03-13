@@ -5,7 +5,7 @@
   "main": "./",
   "type": "module",
   "scripts": {
-    "test": "npm run test",
+    "test": "cls & .\\node_modules\\.bin\\jest",
     "startdev": "cls & nodemon  ./src"
   },
   "author": "Sajad Daghigh",

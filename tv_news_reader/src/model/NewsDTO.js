@@ -12,7 +12,7 @@ export class NewsDTO {
         if( date && date instanceof Date) {
             this.da = date;
             this.shda = date.toLocaleDateString('fa-IR');
-            this.t = date.toLocaleTimeString();
+            this.tm = date.toLocaleTimeString();
         }
     
     }

@@ -6,7 +6,6 @@ import { NewsDTO } from '../model/NewsDTO.js';
 export const getNews = (url) => { 
   
   return new Promise((resolve,reject) => {
-        // console.log("News gathering started -> " , url);
         
           let newss = [];
 
@@ -40,20 +39,21 @@ export const getNews = (url) => {
 
 
 
-export const getAllNews = () => {
+export const queryAllNews = () => {
 
   var promieses = [];
-  // newss.splice(0, newss.length);
   
   news_sources.forEach((url) => {
     promieses.push(getNews(url));
   });
 
-  console.log(" BEFORE PROMISE ALL -- Calling : ", promieses.length);
-
-  Promise.allSettled(
+  return Promise.allSettled(
     promieses
-    ).then(
+  );
+}
+
+export const queryAndMergeResult = () => { 
+  queryAllNews().then(
       (values) => {
         let final = mergeResult(values);
         console.log('ALL NEWS GATHERED ' ,  final.length , ' news! ');
@@ -61,7 +61,6 @@ export const getAllNews = () => {
   ).catch((url)=>{
     console.log('ERROR', url)
   });
-
 }
 
 const mergeResult = (result) => { 
