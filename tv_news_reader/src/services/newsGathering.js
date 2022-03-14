@@ -84,11 +84,10 @@ export const queryInNews = (query,data) => {
   });
 
   if(query && query[0])
-    q.substring(0,q.length - 1);
+    q = q.substring(0, q.length - 2);
   
-  console.log(q);
-  let regex = new RegExp("^" + q + "$");
-  console.log(regex.test("add as a "));
+  
+  let regex = new RegExp(q);
 
   return data.filter(news => 
     
