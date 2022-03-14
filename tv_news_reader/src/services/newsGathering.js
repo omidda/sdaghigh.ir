@@ -3,6 +3,7 @@ import { news_sources } from '../settings.js';
 import { NewsDTO } from '../model/NewsDTO.js';
 
 
+
 export const getNews = (url) => { 
   
   return new Promise((resolve,reject) => {
@@ -35,10 +36,6 @@ export const getNews = (url) => {
 
 } 
 
-
-
-
-
 export const queryAllNews = () => {
 
   var promieses = [];
@@ -56,6 +53,7 @@ export const queryAndMergeResult = () => {
   queryAllNews().then(
       (values) => {
         let final = mergeResult(values);
+        global.news_feeds = final;
         console.log('ALL NEWS GATHERED ' ,  final.length , ' news! ');
     }
   ).catch((url)=>{
@@ -71,11 +69,8 @@ export const mergeResult = (result) => {
     })
   
   });
-
   return final;
 }
-
-
 
 export const queryInNews = (query,data) => {
   let q = "";
@@ -89,10 +84,13 @@ export const queryInNews = (query,data) => {
   
   let regex = new RegExp(q);
 
-  return data.filter(news => 
-    
+  if(data && data[0])
+
+    return data.filter(news => 
      ( (news.t && regex.test(news.t)) || (news.d && regex.test((news.d))) )
-    
      );
+  else
+      return [];
   
 }
+

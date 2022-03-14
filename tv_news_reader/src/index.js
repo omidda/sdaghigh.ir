@@ -1,11 +1,16 @@
 
-import { getAllNews } from './services/newsGathering.js';
+import { queryAndMergeResult } from './services/newsGathering.js';
+import app from "./app.js"
 
 console.log("NEWS Service of TRADERVIEW . IR");
 
-getAllNews();
+queryAndMergeResult();
 
-setInterval(()=> getAllNews(), 60000);
+setInterval(()=> queryAndMergeResult(), 120000);
 
+
+app.listen( 3000 , () => {
+    console.log("Traderview rest services runned at http://localhost:3000");
+ })
 
 
