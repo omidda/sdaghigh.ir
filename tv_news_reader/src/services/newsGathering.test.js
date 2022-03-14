@@ -26,11 +26,14 @@ describe("News Gathering test", ()=>{
      })
 
      test("News Query TEST",()=>{
-         let fakeData = [{t:"بازار بورس در سال جدید به کجا می روند", d: "در صورت مشاهده هر یک از موارد بازار می  توان یه بورس مراجعه کرد"}];
-
-         let result = queryInNews(["سالاذ","قلب"], fakeData);
-         console.log(result);
-
+         let fakeData = [{
+             t: "بازار بورس در سال جدید به کجا می روند",
+             d: "در صورت مشاهده هر یک از موارد بازار می  توان یه بورس مراجعه کرد"
+         }];
+        
+         let result = queryInNews(["سالاذ", "بورس"],
+             fakeData);
+        
          expect(result.length).toBeGreaterThan(0);
      })
 });
