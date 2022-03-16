@@ -5,8 +5,9 @@
   "main": "./",
   "type": "module",
   "scripts": {
-    "test": "cls & .\\node_modules\\.bin\\jest",
-    "startdev": "cls & nodemon  ./src"
+    "test": "cls & .\\node_modules\\.bin\\jest --coverage",
+    "startdev": "start http://localhost:3000 & cls & nodemon  ./src",
+    "test:coverage" : "start ./coverage/lcov-report/index.html"
   },
   "author": "Sajad Daghigh",
   "license": "ISC",
