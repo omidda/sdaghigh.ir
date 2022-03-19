@@ -2,12 +2,14 @@
   "name": "tv_news_reader",
   "version": "1.0.0",
   "description": "A microservice to read news",
-  "main": "./",
-  "type": "module",
+  "main": "./src/index.js",
+  
   "scripts": {
+    "build": "webpack --mode production",
+    "start": "cls & node ./dist/main.js",
     "test": "cls & .\\node_modules\\.bin\\jest --coverage",
     "startdev": "start http://localhost:3000 & cls & nodemon  ./src",
-    "test:coverage" : "start ./coverage/lcov-report/index.html"
+    "test:coverage": "start ./coverage/lcov-report/index.html"
   },
   "author": "Sajad Daghigh",
   "license": "ISC",
