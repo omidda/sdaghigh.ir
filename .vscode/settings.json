@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/f4f533db-dac2-4cd3-a170-5c7ce024287c/resourceGroups/Traderview_RS/providers/Microsoft.Web/sites/tvnewsapp",
+    "appService.deploySubpath": "tv_news_reader"
+}

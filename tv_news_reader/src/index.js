@@ -9,7 +9,7 @@ queryAndMergeResult();
 setInterval(()=> queryAndMergeResult(), 120000);
 
 
-app.listen( 3000 , () => {
+app.listen( 8080 , () => {
     console.log("Traderview rest services runned at http://localhost:3000");
  })
 

@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "start": "cls & node ./dist/main.js",
-    "test": "cls & .\\node_modules\\.bin\\jest --coverage",
+    "start": "node ./dist/main.js",
+    "test": ".\\node_modules\\.bin\\jest --coverage",
     "startdev": "start http://localhost:3000 & cls & nodemon  ./src",
     "test:coverage": "start ./coverage/lcov-report/index.html"
   },
