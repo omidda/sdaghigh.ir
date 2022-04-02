@@ -86,9 +86,14 @@ export const queryInNews = (query,data) => {
 
   if(data && data[0])
 
-    return data.filter(news => 
+    let array = data.filter(news => 
      ( (news.t && regex.test(news.t)) || (news.d && regex.test((news.d))) )
      );
+     return array.sort(function(a,b){
+      // Turn your strings into dates, and then subtract them
+      // to get a value that is either negative, positive, or zero.
+      return new Date(a.da) - new Date(b.da);
+    });
   else
       return [];
   
