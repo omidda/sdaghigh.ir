@@ -90,7 +90,7 @@ export const queryInNews = (query,data) => {
      return array.sort(function(a,b){
       // Turn your strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
-      return new Date(a.da) - new Date(b.da);
+      return a.da - b.da;
     });
   }
   else
