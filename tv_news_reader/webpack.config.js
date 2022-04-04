@@ -1,4 +1,4 @@
-clsvar nodeExternals = require("webpack-node-externals");
+var nodeExternals = require("webpack-node-externals");
 
 module.exports = {
     target: "node",
