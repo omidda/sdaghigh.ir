@@ -27,7 +27,7 @@ cron.schedule("0 7 * * *",()=>{
 });
 
 cron.schedule("0 8 * * 0-3,6",()=>{
-  if(checkIfTodayIsHoliday())
+  if(!checkIfTodayIsHoliday())
     turnOnOffApp("tvstockgather",1);
 });
 
