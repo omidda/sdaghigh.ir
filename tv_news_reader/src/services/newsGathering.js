@@ -2,8 +2,6 @@ import { read } from 'feed-reader';
 import { news_sources } from '../settings.js';
 import { NewsDTO } from '../model/NewsDTO.js';
 
-
-
 export const getNews = (url) => { 
   
   return new Promise((resolve,reject) => {
@@ -84,7 +82,11 @@ export const queryInNews = (query,data) => {
   
   let regex = new RegExp(q);
 
+<<<<<<< HEAD
   if (data && data[0]) {
+=======
+  if(data && data[0]){
+>>>>>>> 569fe366506d9473fe6a68038d3af1035b8ef13e
 
     let array = data.filter(news =>
       ((news.t && regex.test(news.t)) || (news.d && regex.test((news.d))))
@@ -92,7 +94,7 @@ export const queryInNews = (query,data) => {
     return array.sort(function (a, b) {
       // Turn your strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
-      return new Date(a.da) - new Date(b.da);
+      return a.da - b.da;
     });
   }
   else
