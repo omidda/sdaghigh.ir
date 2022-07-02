@@ -1,0 +1,14 @@
+{
+  "name": "sdaghigh-backend",
+  "version": "1.0.0",
+  "description": "Backend service for my personal website sdaghigh.ir",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sajad Daghigh",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.7.0"
+  }
+}
