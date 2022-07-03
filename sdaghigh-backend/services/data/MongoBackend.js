@@ -1,14 +1,11 @@
 const { MongoClient } = require("mongodb");
+const { globalConfig } = require("../../config/index");
 
 class MongoBackend {
 
-    db_server = "localhost";
-    db_port = 37017;
-    db_name = "sdaghigh"
 
     constructor() {
-        this.mongoUrl = "mongodb://" + this.db_server +
-            ":" + this.db_port + "/" + this.db_name;
+        this.mongoUrl = globalConfig.mongodb.url + "/" + globalConfig.mongodb.;
         console.log('MONGO DB CONNECTED', this.mongoUrl);
         this.client = null;
         this.collection = null;
@@ -21,7 +18,7 @@ class MongoBackend {
         });
 
         this.client = await mongoClient.connect();
-        this.collection = this.client.db("sdaghigh");
+        this.collection = this.client.db("sdaghigh").collection("contactus");
         return this.client;
     }
 
@@ -32,12 +29,19 @@ class MongoBackend {
         return false;
     }
     
-    async insert() {
-        
+    async insert(contactus) {
+        if (!contactus)
+            contactus = {
+                fullname: "Sajad Daghigh",
+                email: "sajad.daghigh@gmail.com",
+                mobile: "+989388926636",
+                message: "SALAM KHOBI?"
+            }
+        return this.collection.insertOne(contactus);
     }
 
     async getMax() {
-        
+        return this.collection.findOne({}, { sort : { value: -1 } });
     }
 
     async max() { 
@@ -48,8 +52,20 @@ class MongoBackend {
             const client = await this.connect();
             await client.db("admin").command({ ping: 1 });
             console.info("Success Connection");
-
             console.timeEnd("mongodb-connect");
+            
+            console.info("Inserting a new document");
+            console.time("mongodb-insert");
+            const insertResult = await this.insert();
+            // console.info(`${insertResult.result.n} Document inserted.`);
+            console.timeEnd("mongodb-insert");
+
+            console.info("Finding a new document");
+            console.time("mongodb-query");
+            const queryResult = await this.getMax();
+            console.info(`${JSON.stringify(queryResult)} Document Query.`);
+            console.timeEnd("mongodb-query");
+
             console.info("Disconnecting from MongoDB");
             console.time("mongodb-disconnect");
           
