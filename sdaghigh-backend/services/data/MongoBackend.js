@@ -1,24 +1,24 @@
 const { MongoClient } = require("mongodb");
-const { globalConfig } = require("../../config/index");
+const globalConfig = require("../../config/index.js");
 
 class MongoBackend {
 
 
     constructor() {
-        this.mongoUrl = globalConfig.mongodb.url + "/" + globalConfig.mongodb.;
-        console.log('MONGO DB CONNECTED', this.mongoUrl);
+        console.log('MONGO DB CONNECTED', globalConfig.mongodb.url);
         this.client = null;
         this.collection = null;
     }
 
     async connect() {
-        const mongoClient = new MongoClient(this.mongoUrl, {
+        const mongoClient = new MongoClient(globalConfig.mongodb.url, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         });
 
         this.client = await mongoClient.connect();
-        this.collection = this.client.db("sdaghigh").collection("contactus");
+        this.collection = this.client.db(globalConfig.mongodb.dbname)
+            .collection("contactus");
         return this.client;
     }
 
